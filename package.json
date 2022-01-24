@@ -59,7 +59,7 @@
     "@types/semver": "~7.3.9",
     "@types/sinon": "~10.0.8",
     "@types/uuid": "~8.3.4",
-    "@types/vscode": "~1.56.0",
+    "@types/vscode": "~1.63.1",
     "@vscode/test-electron": "~2.1.1",
     "esbuild": "^0.14.13",
     "glob": "^7.2.0",
