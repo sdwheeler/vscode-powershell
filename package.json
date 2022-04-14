@@ -1,7 +1,7 @@
 {
   "name": "powershell-preview",
   "displayName": "PowerShell Preview",
-  "version": "2022.3.0",
+  "version": "2022.4.0",
   "preview": true,
   "publisher": "ms-vscode",
   "description": "(Preview) Develop PowerShell modules, commands and scripts in Visual Studio Code!",
@@ -46,9 +46,9 @@
     "onView:PowerShellCommands"
   ],
   "dependencies": {
-    "@vscode/extension-telemetry": "~0.4.10",
+    "@vscode/extension-telemetry": "~0.5.0",
     "node-fetch": "~2.6.7",
-    "semver": "~7.3.5",
+    "semver": "~7.3.7",
     "uuid": "~8.3.2",
     "vscode-languageclient": "~7.0.0",
     "vscode-languageserver-protocol": "~3.16.0"
@@ -65,15 +65,15 @@
     "@types/uuid": "~8.3.4",
     "@types/vscode": "~1.59.0",
     "@vscode/test-electron": "~2.1.3",
-    "esbuild": "^0.14.27",
-    "glob": "^7.2.0",
+    "esbuild": "^0.14.36",
+    "glob": "^8.0.1",
     "mocha": "~9.2.2",
     "mocha-multi-reporters": "~1.5.1",
     "mock-fs": "~5.1.2",
     "rewire": "~6.0.0",
-    "sinon": "~13.0.1",
+    "sinon": "~13.0.2",
     "tslint": "~6.1.3",
-    "typescript": "~4.6.2",
+    "typescript": "~4.6.3",
     "vsce": "~2.7.0"
   },
   "extensionDependencies": [
@@ -549,30 +549,17 @@
         },
         "powershell.sideBar.CommandExplorerExcludeFilter": {
           "type": "array",
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Specify array of Modules to exclude from Command Explorer listing."
         },
         "powershell.powerShellAdditionalExePaths": {
-          "type": "array",
-          "description": "Specifies an array of versionName / exePath pairs where exePath points to a non-standard install location for PowerShell and versionName can be used to reference this path with the powershell.powerShellDefaultVersion setting.",
-          "scope": "machine",
-          "uniqueItems": true,
-          "items": {
-            "type": "object",
-            "required": [
-              "versionName",
-              "exePath"
-            ],
-            "properties": {
-              "versionName": {
-                "type": "string",
-                "description": "Specifies the version name of this PowerShell executable. The version name can be referenced via the powershell.powerShellDefaultVersion setting."
-              },
-              "exePath": {
-                "type": "string",
-                "description": "Specifies the path to the PowerShell executable. Typically this is a path to a non-standard install location."
-              }
-            }
+          "type": "object",
+          "description": "Specifies a list of versionName / exePath pairs where exePath points to a non-standard install location for PowerShell and versionName can be used to reference this path with the powershell.powerShellDefaultVersion setting.",
+          "additionalProperties": {
+            "type": "string"
           }
         },
         "powershell.powerShellDefaultVersion": {
@@ -822,7 +809,10 @@
         },
         "powershell.developer.featureFlags": {
           "type": "array",
-          "default": null,
+          "items": {
+            "type": "string"
+          },
+          "default": [],
           "description": "An array of strings that enable experimental features in the PowerShell extension."
         },
         "powershell.developer.waitForSessionFileTimeoutSeconds": {
