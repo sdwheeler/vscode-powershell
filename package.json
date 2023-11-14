@@ -92,7 +92,7 @@
     "@types/sinon": "17.0.0",
     "@types/ungap__structured-clone": "0.3.1",
     "@types/uuid": "9.0.6",
-    "@types/vscode": "1.79.0",
+    "@types/vscode": "1.84.1",
     "@typescript-eslint/eslint-plugin": "6.10.0",
     "@typescript-eslint/parser": "6.10.0",
     "@ungap/structured-clone": "1.2.0",
